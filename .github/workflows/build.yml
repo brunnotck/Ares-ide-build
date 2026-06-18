@@ -14,19 +14,19 @@ jobs:
     
     steps:
       - name: Checkout ARES IDE Build Scripts
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: 'ares-build'
           
       - name: Checkout VSCodium Source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: 'VSCodium/vscodium'
           path: 'vscodium'
           fetch-depth: 1
           
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
           
@@ -42,7 +42,7 @@ jobs:
           echo "Iniciando compilação..."
           
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ARES-IDE-Windows
           path: vscodium/out-build/*.exe
