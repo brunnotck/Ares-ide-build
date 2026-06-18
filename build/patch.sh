@@ -25,3 +25,4 @@ cp -r ../ares-build/ares-ide-extension/* extensions/ares-ide-builtin/
 echo "========================================="
 echo "✅ PATCH APLICADO COM SUCESSO!"
 echo "========================================="
+# Trigger cloud build
