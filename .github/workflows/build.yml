@@ -1,0 +1,51 @@
+name: Build ARES IDE
+
+on:
+  workflow_dispatch: # Permite rodar manualmente
+  push:
+    branches:
+      - main
+    paths:
+      - 'build/**'
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout ARES IDE Build Scripts
+        uses: actions/checkout@v3
+        with:
+          path: 'ares-build'
+          
+      - name: Checkout VSCodium Source
+        uses: actions/checkout@v3
+        with:
+          repository: 'VSCodium/vscodium'
+          path: 'vscodium'
+          fetch-depth: 1
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          
+      - name: Apply ARES IDE Branding (Patching)
+        run: |
+          cd vscodium
+          # Script para renomear e injetar logos
+          echo "Aplicando branding da ARES IDE..."
+          # Aqui futuramente injetaremos nosso script de patch product.json
+          
+      - name: Install Dependencies & Compile
+        run: |
+          cd vscodium
+          npm install -g yarn
+          # Comandos de build oficiais do VS Code
+          echo "Iniciando compilação (Simulação na fase inicial)..."
+          
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ARES-IDE-Windows
+          path: vscodium/out-build/*.exe
