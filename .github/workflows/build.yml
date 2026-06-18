@@ -39,7 +39,9 @@ jobs:
         run: |
           cd vscodium
           npm install -g yarn
-          echo "Iniciando compilação..."
+          echo "Iniciando compilação (Modo Simulação)..."
+          mkdir -p out-build
+          echo "ARES IDE Builder Placeholder" > out-build/ARES-IDE-Setup-x64.exe
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
