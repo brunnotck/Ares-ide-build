@@ -1,0 +1,44 @@
+{
+  "name": "ares-ide",
+  "displayName": "ARES IDE",
+  "description": "ARES IDE: Orchestrator Companion Extension",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "ares-ide-explorer",
+          "title": "ARES IDE",
+          "icon": "$(hub)"
+        }
+      ]
+    },
+    "views": {
+      "ares-ide-explorer": [
+        {
+          "type": "webview",
+          "id": "ares.dashboardView",
+          "name": "Dashboard"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "18.x",
+    "typescript": "^5.1.3"
+  }
+}
